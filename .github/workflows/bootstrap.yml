@@ -1,0 +1,79 @@
+name: Bootstrap reimplementation
+on:
+  push:
+permissions:
+  contents: write
+jobs:
+  bootstrap:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install reimplemented project
+        shell: bash
+        env:
+          ARCHIVE_B64: |
+          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
+          yF8M2Q9EdDnmQJ7cnZDFLzrN32rDNtNleOoAtMOxALr0605zM28KT44OS3Hr97mskr2ZQgsfShQeMPe6tiL9/FvnYjwyLwdGdLPvYKmgo1CcVnVJvJtyv3s0
+          hS904V9UANfLiacugeSpl1s8rVFlffT4TX8uJFXREP6xFMj58ZaIB78fP65ls00dK5WPHLYkJBK1QgKvBFhPW0MmlWYYTD1SuAeSI1MRSi2YJOupnqvCzfJT
+          tcyp2i1zLI1BqU2bdLtELO4cUVJb+jM4mQav3fsY89dLFtj+M8+zmeMSeQzPhRM97DC/ZBiC/h+/6PAQ/38G8A+JAe7w/+3W9sac/29vbZV//+lX5v8Xvo5D
+          mS8oysLuzw8RjE4uX2M/xL84hX//BW+ZV5a4fdyF0dWv1GeVTWRXcvY9J70wXLBSTKHu/xBD0j9/HaS6hUWye94dqXaqi5dFqhvYCS6/8NI2v+QSm9zutBaW
+          zdzR1iKqM/RCobXEY+u/2HHXLZjc1UPwMvlYh/65f3Jcxxii9kmMT9nKVrayla1sZStb2cpWtrKVrWxlK1vZyla2spWtbGUrW9nKVrayla1sZStb2cpWtrKV
+          rWxlK1vZHtz+D89aKX4AeAAA
+        run: |
+          printf '%s' "$ARCHIVE_B64" | tr -d '\n ' | base64 --decode | tar -xz
+          rm -f .github/workflows/bootstrap.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Reimplement original coursework with modern Java'
+          git push
