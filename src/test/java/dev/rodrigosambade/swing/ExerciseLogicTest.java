@@ -1,12 +1,37 @@
 package dev.rodrigosambade.swing;
-import org.junit.jupiter.api.Test;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 class ExerciseLogicTest {
-    @Test void calculatorAndFactorial() {
-        assertEquals(new BigDecimal("5"), ExerciseLogic.calculate(new BigDecimal("2"), new BigDecimal("3"), "+"));
+
+    @Test
+    void calculatorAddsNumbers() {
+        BigDecimal result = ExerciseLogic.calculate(
+                new BigDecimal("2"),
+                new BigDecimal("3"),
+                "+");
+
+        assertEquals(new BigDecimal("5"), result);
+    }
+
+    @Test
+    void factorialCalculatesProductDownToOne() {
         assertEquals(BigInteger.valueOf(120), ExerciseLogic.factorial(5));
-        assertThrows(ArithmeticException.class, () -> ExerciseLogic.calculate(BigDecimal.ONE, BigDecimal.ZERO, "/"));
+    }
+
+    @Test
+    void calculatorRejectsDivisionByZero() {
+        assertThrows(
+                ArithmeticException.class,
+                () -> ExerciseLogic.calculate(
+                        BigDecimal.ONE,
+                        BigDecimal.ZERO,
+                        "/"));
     }
 }
